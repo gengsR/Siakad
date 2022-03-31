@@ -19,9 +19,13 @@ class Mahasiswa extends Model
  * @var array
  */
 protected $fillable = [
- 'Nim',
- 'Nama',
- 'Kelas',
- 'Jurusan',
+    'Nim',
+    'Nama',
+    'Kelas',
+    'Jurusan',
+    'Jenis_kelamin',
+    'Email',
+    'Alamat',
+    'Tanggal_lahir',
  ];
 }
