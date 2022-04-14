@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 use Illuminate\Support\Facades\DB;
 use App\Models\Mahasiswa;
 use App\Models\Kelas;
+use App\Models\MataKuliah;
+use App\Models\Mahasiswa_MataKuliah;
 use Illuminate\Http\Request;
 
 class MahasiswaController extends Controller
@@ -144,7 +146,15 @@ class MahasiswaController extends Controller
     //fungsi eloquent untuk menghapus data
     Mahasiswa::where('nim', $nim)->delete();
     return redirect()->route('mahasiswa.index')
-    -> with('success', 'Mahasiswa Berhasil Dihapus');
+   ->with('success','Mahasiswa Berhasil Dihapus');
  }
+ 
+ public function nilai($nim)
+ {
+     $mhs = Mahasiswa::with('kelas')->where("nim", $nim)->first();
+     $matkul = Mahasiswa_Matakuliah::with("matakuliah")->where("mahasiswa_id", ($mhs -> id_mahasiswa))->get();
+     return view('mahasiswa.nilai', ['mahasiswa' => $mhs,'matakuliah'=>$matkul]);
+ }
+ 
 };
     
