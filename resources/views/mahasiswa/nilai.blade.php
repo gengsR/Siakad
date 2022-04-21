@@ -8,6 +8,7 @@
         <div class="d-flex justify-content-center my-3">
             <h1 class="text-center">KARTU HASIL STUDI (KHS)</h1>
         </div>
+        <a class="btn btn-success float-right" href="{{ route('cetak', $mahasiswa->nim) }}"> Cetak KHS</a>
         <div class="row">
             <ul class="" style="list-style-type: none;">
                 <li><b>Nama : </b>{{$mahasiswa->nama}}</li>

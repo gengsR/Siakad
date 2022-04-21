@@ -31,6 +31,7 @@ protected $fillable = [
     'Alamat',
     'Tanggal_lahir',
     'kelas_id',
+    'Foto',
  ];
 
  
